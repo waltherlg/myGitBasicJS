@@ -42,3 +42,23 @@ function processArg(num) {
 }
 processed = processArg(7)
 
+// чуть не сломал мозг пытаясь понять на англицком чего от меня хотят :(
+/*Напишите функцию, nextInLine 
+которая принимает массив ( arr) и число ( item) в качестве аргументов.
+Добавьте число в конец массива, затем удалите первый элемент массива.
+Затем nextInLineфункция должна вернуть элемент, который был удален.*/
+function probe (arr, item) {
+  arr.push(item);
+  let udElement = arr[0];
+  arr.shift();
+  return udElement
+}
+probe([5,6,7,8,9], 1)
+
+//if true
+function trueOrFalse(wasThatTrue) {
+  if (wasThatTrue) {
+    return ("Yes, that was true");
+  } 
+  return ("No, that was false");
+}

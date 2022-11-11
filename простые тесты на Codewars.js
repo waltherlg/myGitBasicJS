@@ -98,3 +98,25 @@ function getLength(arr){
     arr.pop();
     return arr // так же как и фигня выше, надеюсь когда нибудь пойму
   }
+
+  // Задача 5...
+  /*Дайте вам функцию animal, примите 1 параметр: objвот так:
+{name:"dog",legs:4,color:"white"}
+и вернуть такую ​​строку:
+"This white dog has 4 legs."*/
+function animal(obj){ 
+  obj = ("This " + obj.color + " " + obj.name + " " + "has " + obj.legs + " legs");
+  return obj // т.е. СНАЧАЛА мы формируем obj а потом его возвращаем
+}
+
+//Задача 6
+/*Кодирование в функции trueOrFalse, функция принимает 1 параметр: val
+попробуйте использовать условный оператор if...else, 
+если val значение равно false (val==false или оно может быть преобразовано в false), 
+должно вернуть строку "false", если нет, вернуть строку "true".*/
+function trueOrFalse(val){
+  if (val) {
+    return "true"; 
+  }             
+  return "false";
+}

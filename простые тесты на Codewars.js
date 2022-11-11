@@ -120,3 +120,77 @@ function trueOrFalse(val){
   }             
   return "false";
 }
+
+//задача 6
+/* цена ходтогов зависит от количетсва
+Если количетсва меньше 5 - 100 центов, от 5 до 10 - 95 центов, свыще 10 - 90 центов.
+Нужно просчитать выручку при продаже разного количества хотдогов*/
+function saleHotdogs(n){
+  var price
+  if (n<5) price = 100
+  else if (n>=5, n<10) price =  95
+  else price = 90
+  return n*price
+}
+
+//задача на месяцы
+//сколько дней в месяце?
+{
+  function howManydays(month){
+      var days;
+      switch (month){
+        case 1:
+          days=31;
+          break;
+        case 2:
+          days=28;
+          break;
+        case 3:
+          days=31;
+          break;
+        case 4:
+          days=30;
+          break;
+        case 5:
+          days=31;
+          break;
+        case 6:
+          days=30;
+          break;
+        case 7:
+          days=31;
+          break;
+        case 8:
+          days=31;
+          break;
+        case 9:
+          days=30;
+          break;
+        case 10:
+          days=31;
+          break;
+        case 11:
+          days=30;
+          break;
+        case 12:
+          days=31;
+          break;
+      }
+      return days;
+    }
+  }
+  // сколько дней в месяце если подумать подольше?
+    function howManydays(month){
+      var days;
+      switch (month){
+        case 4: case 6: case 9: case 11:
+          days=30;
+          break;
+        case 2:
+          days=28;
+          break;
+        default:
+          days=31;
+      }
+      return days;
+    }

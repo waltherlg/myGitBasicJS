@@ -157,3 +157,264 @@ FirstLine
 	\SecondLine
 ThirdLine
 
+// объединение строк
+
+/* с помощью оператора + можно объеденять строки */
+const ourStr = "I come first. " + "I come second.";
+// на выходе будет: I come first. I come second.
+
+// c помощью += можно добавлять строку
+let ourStr = "I come first. ";
+ourStr += "I come second.";
+// на выходе так же будет I come first. I come second.
+
+// можно объеденять строки используя переменные
+const ourName = "freeCodeCamp";
+const ourStr = "Hello, our name is " + ourName + ", how are you?";
+/* на выходе будет:
+Hello, our name is freeCodeCamp, how are you? */
+
+// так же можно состовлять строки используя перменные в которые входят эти строки
+const anAdjective = "awesome!";
+let ourStr = "freeCodeCamp is ";
+ourStr += anAdjective;
+// на выходе freeCodeCamp is awesome!
+
+// ОПРЕДЕЛЯЕМ ДЛИННУ СТРОКИ
+.length // С помощью 
+console.log("Alan Peter".length); // на выходе будет 10
+// или же длинну строки в переменной:
+
+// НАЙТИ СИМВОЛ В СТРОКЕ с помощью []
+const firstName = "Charles"; 
+const firstLetter = firstName[0]; // индексация начинается с 0, поэтомму первый символ идет под 0
+console.log(firstLetter) // выдаст значение "C"
+
+//мы не можем поменять символ в строке:
+let myStr = "Bob";
+myStr[0] = "J"; // ошибка
+// но можно поменять всю строку целиком
+let myStr = "Bob";
+myStr = "Job"; // если только не использовали const
+
+// таким макаром можно найти любой символ в строке
+const firstName = "Ada";
+const secondLetterOfFirstName = firstName[1]; // secondLetterOfFirstName будет "d"
+
+// последний символ в строке можно найти с помощью .length - 1
+const firstName = "Ada";
+const lastLetter = firstName[firstName.length - 1]; // то есть длинна строки минус 1
+lastLetter // будет иметь значение "a"
+
+// таким же способом можно найти символы в обратной последовательности:
+const firstName = "Augusta";
+const thirdToLastLetter = firstName[firstName.length - 3]; // т.е. третий символ с конца
+thirdToLastLetter // будет иместь значение "s"
+
+
+// МАССИВЫ, с помощью них можно хранить несколько данных в одной переменной:
+const sandwich = ["peanut butter", "jelly", "bread"];
+
+// мы можем поместить массивы внутрь других массивов:
+const teams = [["Bulls", 23], ["White Sox", 45]]; // это называется многомерный массив
+
+// получать доступ к элементам массивы можно с помощью индексов:
+const array = [50, 60, 70];
+console.log(array[0]); // значение будет 50 
+const data = array[1]; // тут 60
+
+// существую МНОГОМЕРНЫЕ массивы:
+const arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [[10, 11, 12], 13, 14]
+];
+const subarray = arr[3]; // тут это четвертая строчка (потому что индексация с 0). т.е. [[10, 11, 12], 13, 14]
+const nestedSubarray = arr[3][0]; // четвертая строчка, первый элемент массива в этой строчке [10, 11, 12]
+const element = arr[3][0][1]; /* четвертая строчка, первый элемент массива, 
+и второй элемент внтутри него "11"*/
+// пробелы между названиями массивов и квадратными скобками не допускаются
+
+.push() // добавления данных в конец массива
+const arr1 = [1, 2, 3];
+arr1.push(4); // arr1 имеет значение [1, 2, 3, 4]
+
+const arr2 = ["Stimpson", "J", "cat"];
+arr2.push(["happy", "joy"]); // arr2 ["Stimpson", "J", "cat", ["happy", "joy"]]
+
+.pop() // извлечения значения из конца массива
+const threeArr = [1, 4, 6];
+const oneDown = threeArr.pop();
+console.log(oneDown); // отобразит 6
+console.log(threeArr); // отобразит [1, 4]
+
+.shift() // удаляет первый элемент из массива
+const ourArray = ["Stimpson", "J", ["cat"]];
+const removedFromOurArray = ourArray.shift();
+removedFromOurArray // будет иметь значение Stimpson
+ourArray // ["J", ["cat"]]
+
+.unshift() // добавляет элементы в начало массива
+const ourArray = ["Stimpson", "J", "cat"];
+ourArray.shift(); // удаляет "Stimpson"
+ourArray.unshift("Happy");
+ourArray // будет иметь массив ["Happy", "J", "cat"]
+
+// Функции - многоразовый код
+function functionName() { // function - команда, functionName - имя функции { - начало блока функции
+    console.log("Hello World"); // что должна сделать функция при вызове functionName
+}
+functionName(); /* теперь каждый раз когда в коде будет functionName
+в консоле будет вызываться "Hello World" */
+
+/*Параметры — это переменные, которые действуют как заполнители для значений, 
+которые должны быть введены в функцию при ее вызове. Фактические значения, 
+которые вводятся (или «передаются» ) в функцию при ее вызове, называются аргументами. */
+function testFun(param1, param2) {
+    console.log(param1, param2);
+}
+testFun("Hello", "World"); // вместе с вызовом функции мы передали два аргументы для этой функции
+// после этой команды на консоле будет выведено Hello World
+
+// Возврат значения из функции!!! c помощью return оператора
+function plusThree(num) {
+    return num + 3;
+}
+const answer = plusThree(5);
+/* тут мы имеем функцию plusThree(num)
+внутри функции оператор return. 
+мы заводим перменную answer... она будет равна функции plusThree, 
+внутри мы пишем какое нибудь значение, в данном случае 5
+num принимает значение 5, дальше функция прибавляет 3 (num + 3)
+а оператор return ВОЗВРАЩАЕТ полученное значение в answer
+*/
+
+// Global and Local
+/* переменные объявленные вне блока фигурных скобок {}
+будут глобальными (global), то есть доступными во всем коде
+переменные которые объявленны ВНУТРИ блока {} будут локальными (local)
+и будут доступны только внутри блока. */
+let someOutBlock = "что то вне блока";
+{   
+    let someInBlock = "что то внутри блока";
+}
+console.log(someOutBlock) // выдаст "что то вне блока"
+console.log(someInBlock) // выдаст ошибку
+// возможны переменные с одинаковым именем и с глобал и с локал
+// локальная переменнная будет иметь приоритет надо глобальной
+
+// функция может и не включить оператор return
+let sum = 0;
+function addSum(num) {
+  sum = sum + num;
+}
+addSum(3);
+// значение sum изменится при вызове функции
+// но, возвращаемое значение функции будет неопределено (undefined)
+
+// мы можем присвоить переменной полученой от return при вызове функции:
+function sum(a, b){
+    return a+b;
+}
+ourSum = sum(5, 12); /* тут мы вызываем функцию sum 
+и присваиваем a b значения 5 и 12. return возвращает полученую сумму
+и присваевает ее переменной ourSum*/
+console.log(ourSum); // выдаст 17
+
+/* Логический тип данных (boolean) - истина (true) или лож (false)
+логические данные можно использовать с оператором if */
+function test (myCondition) { // вызов функции test
+    if (myCondition) { // если условия true (тут true по умолчанию
+      return "It was true"; // то запускается этот блок
+    }
+    return "It was false"; // в противном случае продолжается этот
+}
+
+// операторы равенства
+== // оператор сравнивает значения, если они равны то возвращает true
+// если не равны то false
+function equalityTest(myVal) {
+    if (myVal == 10) { // если myVal равно 10, 
+      return "Equal"; // то запускается этот блок и возвращает "Equal"
+    }
+    return "Not Equal"; // если не равно 10 то этот лок и "Not Equal"
+}
+// JS сам переводит цифры в number если они в строках:
+1   ==  1  // true
+1   ==  2  // false
+1   == '1' // true 
+"3" ==  3  // true
+
+=== // оператор строгого равенства, не переводит строки в number
+3 ===  3  // true
+3 === '3' // false
+
+// что бы определить какой тип имеет перменная можно использовать typeof
+typeof 3
+typeof '3'
+//(надо бы разобраться куда они выводят какой тип)
+
+!= // оператор НЕравенства 
+1 !=  2    // true
+1 != "1"   // false
+1 != '1'   // false
+1 != true  // false
+0 != false // false
+
+!== // оператор СТРОГОГО неравенства
+3 !==  3  // false
+3 !== '3' // true
+4 !==  3  // true
+
+> // оператор БОЛЬШЕ чем
+5   >  3  // true
+7   > '3' // true
+2   >  3  // false
+'1' >  9  // false
+
+>= // оператор БОЛЬШЕ или РАВНО
+6   >=  6  // true
+7   >= '3' // true
+2   >=  3  // false
+'7' >=  9  // false
+
+< // оператор МЕНЬШЕ чем
+2   < 5 // true
+'3' < 7 // true
+5   < 5 // false
+3   < 2 // false
+'8' < 4 // false
+
+<= // оператор МЕНЬШЕ или РАВНО
+4   <= 5 // true
+'7' <= 7 // true
+5   <= 5 // true
+3   <= 2 // false
+'8' <= 4 // false
+
+
+&&// логический оператор and (и)
+// иногда нужно проверить больше одной вещи за раз,
+// например:
+5 < num < 10
+// это можно проверить так:
+if (num > 5) { // если num > 5, то проверяем дальше
+    if (num < 10) { // если num меньше 10 то 
+      return "Yes"; // выходит yes
+    }
+}
+return "No";
+
+// короче можно написать так:
+if (num > 5 && num < 10) {
+    return "Yes";
+}
+return "No";
+
+|| // оператор ИЛИ (or) 
+// возвращает trueзначение, если один из операндов равен true
+if (num > 10 || num < 5) {
+    return "No";
+}
+return "Yes";

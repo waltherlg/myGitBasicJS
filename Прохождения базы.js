@@ -62,3 +62,60 @@ function trueOrFalse(wasThatTrue) {
   } 
   return ("No, that was false");
 }
+
+/*наконец то нормальная задача про гольфистов 
+В игре в гольф у каждой лунки есть par, что означает 
+среднее количество очков strokes, которое игрок в гольф должен сделать, 
+чтобы загнать мяч в лунку и завершить игру. 
+В зависимости от того, насколько выше или ниже parвы 
+strokesнаходитесь, существует другое прозвище.
+
+Вашей функции будут переданы parи strokesаргументы. 
+Верните правильную строку в соответствии с этой таблицей, 
+в которой штрихи перечислены в порядке приоритета; 
+сверху (самый высокий) к низу (самый низкий):
+
+Strokes	Return
+1	"Hole-in-one!"
+<= par - 2	"Eagle"
+par - 1	"Birdie"
+par	"Par"
+par + 1	"Bogey"
+par + 2	"Double Bogey"
+>= par + 3	"Go Home!"
+
+*/
+const names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+
+function golfScore(par, strokes) {
+  // Only change code below this line
+  let diff = par - strokes;
+  if (strokes == 1) {
+  return names[0];
+  }
+  else if (diff == 0) {
+  return names[3];
+  }
+  else if (par > strokes) {
+    if (diff == 1) {
+      return names[2];
+    }
+    else if (diff >= 2) {
+      return names[1];
+  }
+  }
+  else if (par < strokes); {
+    if (diff == -1) {
+      return names[4];
+    }
+    else if (diff == -2) {
+      return names[5];
+    }
+    else if (diff <= -3) {
+      return names[6];
+    }
+   }
+  // Only change code above this line
+}
+
+golfScore(5, 4);

@@ -119,3 +119,74 @@ function golfScore(par, strokes) {
 }
 
 golfScore(5, 4);
+
+// интересная задача про блекджек
+/* Подсчет изменений	  Карты
+          +1	          2, 3, 4, 5, 6
+          0	            7, 8, 9
+          -1	          10, 'J', 'Q', 'К', 'А' 
+Нужно создать функцию подсчета карт, в зависимости от карт 
+будет вестись счет + или - 1 или без изменений,
+в конце ввода карт нужно вывести 
+счет и Bet если счет положительный или Hold если счет отрицательный*/
+
+let count = 0;
+function cc(card) {
+  // Only change code below this line
+  switch (card) {
+    case 2: case 3: case 4: case 5: case 6:
+      count++; // тут повышаем счетчик
+      break;
+    case 10: case 'J': case 'Q': case 'K': case 'A':
+      count--; // тут понижаем счетчик
+      break;
+    default: 
+      break; // если выпадает 7, 8, 9, то нифига не делаем
+  }
+  let HoldOrBet; // заводим переменную холд или бет
+  if (count > 0) { // если счет больше нуля, переменная будет бет
+    HoldOrBet = "Bet";
+  }
+  else { // в противном случае холд
+    HoldOrBet = "Hold";
+  }
+
+  return (count + " " + HoldOrBet); // возвращаем счетчик, пробел и ХолдИлиБет
+  // Only change code above this line
+}
+cc(2); cc(3); cc(7); cc('K'); cc('A');
+
+//Преобразуйте оператор switch в объект с именем lookup. 
+//Используйте его, чтобы найти valи присвоить связанную строку resultпеременной.
+// Setup
+function phoneticLookup(val) {
+  let result = "";
+  // Only change code below this line
+    const lookup = {
+      "alpha": "Adams",
+      "bravo": "Boston",
+      "charlie": "Chicago",
+      "delta": "Denver",
+      "echo": "Easy",
+      "foxtrot": "Frank",
+    }
+    result = lookup[val]; // тут была запара - нужно использовать [] если есть ковычки
+  // Only change code above this line
+  return result;
+}
+
+// Еще одна задачка
+/*Измените функцию checkObj, чтобы проверить, содержит ли объект, 
+переданный функции ( obj), определенное свойство ( checkProp). 
+Если свойство найдено, верните значение этого свойства. Если нет, верните "Not Found".*/
+function checkObj(obj, checkProp) {
+  // Only change code below this line
+if (obj.hasOwnProperty(checkProp)) {
+    return obj[checkProp]; // снова загвоздка в квадратных скобках
+   }
+else {
+    return "Not Found";
+}
+  // Only change code above this line
+}
+checkObj({gift: "pony", pet: "kitten", bed: "sleigh"}, "gift")

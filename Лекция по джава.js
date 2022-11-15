@@ -434,3 +434,140 @@ if (num > 15) {
 } else {
     return "Between 5 and 15";
 }
+
+// оператор switch
+function howManydays(month){ // запускается функция с номером месяца
+    var days; // заводим переменную количество дней
+    switch (month){ // оператор переключения
+      case 4: case 6: case 9: case 11: // в случае month === 4 6 9 11
+        days=30; // days равно 30
+        break; // заканичвает переключения
+      case 2:
+        days=28;
+        break;
+      default: // если никакие case не выполнены, то идет этот вариант
+        days=31;
+    }
+    return days; // возвращаем days
+  }
+
+// Возврат логических значений из функций
+// допустим нам надо вернуть true или false, можно так:
+function isEqual(a, b) {
+  if (a === b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+// однако операторы сравнения по умолчанию возвращают true или false:
+function isEqual(a, b) {
+  return a === b;
+}
+
+//Создание объектов JavaScript
+// объекты почти как массивы
+const cat = { 
+    "name": "Whiskers",
+    "legs": 4,
+    "tails": 1,
+    "enemies": ["Water", "Dogs"]
+  };
+// тут у нас объект кот, у которого есть свойства 
+// свойства могут быть записаны как в ковычках так и без
+const anotherObject = {
+  make: "Ford",
+  5: "five",
+  "model": "focus"
+};
+
+/* два способа доступа к свойствам объекта: 
+запись через точку ( .) 
+и запись в квадратных скобках ( []), аналогичная массиву. */
+//пример использования записи через точку (если заранее знаеть имя свойства):
+const myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+const prop1val = myObj.prop1; // будет "val1"
+const prop2val = myObj.prop2; // будет "val2"
+
+/* Если в имени свойства объекта, к которому вы пытаетесь получить доступ, 
+есть пробел, вам нужно будет использовать обозначение в квадратных скобках. */
+const myObj = {
+  "Space Name": "Kirk",
+  "More Space": "Spock",
+  "NoSpace": "USS Enterprise"
+};
+myObj["Space Name"];
+myObj['More Space'];
+myObj["NoSpace"];
+// так же если в имени свойства есть пробелы, то они ДОЛЖНЫ быть в ковычках
+
+/* Еще одно использование квадратных скобок для объектов — доступ к свойству, 
+которое хранится как значение переменной. 
+Это может быть очень полезно для перебора свойств объекта или при доступе к таблице поиска. */
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+const myDog = "Hunter";
+const myBreed = dogs[myDog]; // тут в скобках уже переменная
+console.log(myBreed); // тут будет "Doberman"
+
+/* вы можете обновить его свойства в любое время так же, 
+как и любую другую переменную. 
+Для обновления можно использовать либо точку, либо скобки. */
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+ourDog.name = "Happy Camper" // изменит name на Happy Camper
+// можно изменить так:
+ourDog["name"] = "Happy Camper";
+
+/* можете добавлять новые свойства к существующим объектам */
+ourDog.bark = "bow-wow";
+// или же
+ourDog["bark"] = "bow-wow";
+// добавит свойство bark
+
+//Мы также можем удалить свойства из объектов с помощью delete:
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"],
+  "bark": "bow-wow"
+};
+delete ourDog.bark; // удалит bark
+
+/* Объекты можно рассматривать как хранилище ключей/значений, 
+например словарь. Если у вас есть табличные данные, вы можете использовать объект 
+для поиска значений, вместо switc или if/else. 
+Это полезно, когда ваши входные данные ограничены определенным диапазоном. */
+const article = {
+  "title": "How to create objects in JavaScript",
+  "link": "https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/",
+  "author": "Kaashan Hussain",
+  "language": "JavaScript",
+  "tags": "TECHNOLOGY",
+  "createdAt": "NOVEMBER 28, 2018"
+};
+const articleAuthor = article[author];
+const articleLink = article[link];
+
+const value = "title";
+const valueLookup = article[value];
+
+// Иногда полезно проверить, существует ли свойство данного объекта или нет.
+// для этого используем .hasOwnProperty() оно возвращает true false
+const myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+myObj.hasOwnProperty("top"); // true то есть свойство есть
+myObj.hasOwnProperty("middle"); // false то есть свойства нет

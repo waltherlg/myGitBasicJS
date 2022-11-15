@@ -194,3 +194,24 @@ function saleHotdogs(n){
       }
       return days;
     }
+
+
+/*функция padIt, которая принимает 2 параметра:
+str: строка, представляющая строку для заполнения. Мы дополним его "*"символами с левой и с правой стороны.
+n: число, указывающее, сколько раз дополнять строку. */
+function padIt(str,n){
+  let schet = 0;
+  let mass = "";
+  mass+=str;
+  while (schet != n) {
+    if (schet % 2 != 0){
+      mass+="*";
+    }
+    else {
+      mass = ("*" + mass);
+    }
+    schet++;
+  }
+  return mass;
+}
+padIt("str",5)

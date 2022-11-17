@@ -571,3 +571,121 @@ const myObj = {
 };
 myObj.hasOwnProperty("top"); // true то есть свойство есть
 myObj.hasOwnProperty("middle"); // false то есть свойства нет
+
+// Гибкая структура данных
+const ourMusic = [
+  {
+    "artist": "Daft Punk",
+    "title": "Homework",
+    "release_year": 1997,
+    "formats": [ 
+      "CD", 
+      "Cassette", 
+      "LP"
+    ],
+    "gold": true
+  }
+];
+/* Это массив, который содержит один объект внутри. 
+Объект содержит различные фрагменты метаданных об альбоме. 
+Он также имеет вложенный formatsмассив. 
+Если вы хотите добавить больше записей альбомов, 
+вы можете сделать это, добавив записи в массив верхнего уровня. 
+Объекты содержат данные в свойстве, имеющем формат ключ-значение. 
+В приведенном выше примере "artist": "Daft Punk" это свойство имеет ключ artist и значение Daft Punk. */
+// Короче говоря...
+const myMusic = [ // muMusic содержит содержит два объекта
+  {
+    "artist": "Bon Jovi",
+    "title": "Bounce",
+    "release_year": 2002,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": true
+  },
+  {
+    "artist": "Billy Joel",
+    "title": "Piano Man",
+    "release_year": 1973,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": true
+  }
+];
+
+// Доступ к подсвойствам объектов можно получить, соединив вместе точки или квадратные скобки.
+const ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": { 
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+ourStorage.cabinet["top drawer"].folder2; // тут будет строка "secrets"
+// !! если есть ПРОБЕЛЫ используем квадратные скобки и строчку в ковычках, перед скобкой точку не ставим.
+ourStorage.desk.drawer; // тут будет "stapler"
+
+/* Подобно доступу к вложенным объектам, 
+нотация скобок массива может быть связана для доступа к вложенным массивам. */
+const ourPets = [
+  {
+    animalType: "cat",
+    names: [
+      "Meowzer",
+      "Fluffy",
+      "Kit-Cat"
+    ]
+  },
+  {
+    animalType: "dog",
+    names: [
+      "Spot",
+      "Bowser",
+      "Frankie"
+    ]
+  }
+];
+ourPets[0].names[1]; // тут будет Fluffy
+ourPets[1].names[0]; // тут будет Spot
+
+const myPlants = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }
+];
+
+const secondTree = myPlants[1].list[1]; // то есть первый объект в myPlants
+
+/* Первый тип цикла, называется whil, он выполняется, пока заданное условие истинно, 
+и останавливается, когда это условие перестает быть истинным.*/
+const ourArray = [];
+let i = 0;
+while (i < 5) {
+  ourArray.push(i);
+  i++;
+}
+// while цикл выполнится 5 раз и добавит числа от 0 до 4 к ourArray

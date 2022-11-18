@@ -215,3 +215,78 @@ function padIt(str,n){
   return mass;
 }
 padIt("str",5)
+
+
+/* Не совсем простая задача 
+Завершите функцию, на входе чсло n, такое что n >= 10и n < 10000, затем:
+Сложите все цифры числа n.
+Вычтите сумму из n, и это ваш новый n.
+Если новый nнаходится в списке ниже, 
+верните связанный с ним фрукт, в противном случае вернитесь к задаче 1.
+Пример
+n = 325
+сумма = 3+2+5= 10
+n = 325-10= 315(нет в списке)
+сумма = 3+1+5= 9
+n = 315-9= 306(нет в списке)
+сумма = 3+0+6= 9
+n = 306-9= 297(нет в списке)
+.
+.
+.
+... пока не найдете первый n в списке ниже.
+*/
+
+function SubtractSum(n){
+  let summa = 0;
+  let numbIsNumb = 0;
+  let probe
+  for ( probe = 1000; probe>100; probe = n - summa, n = probe, summa = 0) {
+    let numbInStr = String(n);
+    let kolvoCifr = numbInStr.length;
+    for (var sum=0; sum!=kolvoCifr ;sum++){
+      numbIsNumb = numbInStr[sum];
+      numbIsNumb = Number(numbIsNumb);
+      summa+=numbIsNumb
+    }  
+  }
+  var fruit;
+  switch(probe){
+      case 1: case 3: case 24: case 26: case 47: case 49: case 68: case 70: case 91: case 93:
+          fruit="kiwi";
+          break;
+      case 2: case 21: case 23: case 42: case 44: case 65: case 67: case 69: case 88:
+          fruit="pear";
+          break;
+      case 4: case 6: case 25: case 29: case 48: case 50: case 71: case 73: case 92: case 94: case 96:
+          fruit="banana";
+          break;
+      case 5: case 7: case 28: case 30: case 32: case 51: case 53: case 74: case 76: case 95: case 97:
+          fruit="melon";
+          break;
+      case 8: case 10: case 12: case 31: case 33: case 52: case 56: case 75: case 77: case 79: case 98: case 100:
+          fruit="pineapple";
+          break;
+      case 9: case 18: case 27: case 36: case 45: case 54: case 63: case 72: case 81: case 90: case 99:
+          fruit="apple";
+          break;
+      case 11: case 13: case 34: case 55: case 57: case 59: case 78: case 80:
+          fruit="cucumber";
+          break;
+      case 14: case 16: case 35: case 37: case 39: case 58: case 60: case 83:
+          fruit="orange";
+          break;
+      case 15: case 17: case 19: case 38: case 40: case 61: case 82: case 84: case 86:
+          fruit="grape";
+          break;
+      case 20: case 22: case 41: case 43: case 62: case 64: case 66: case 85: case 87: case 89:
+          fruit="cherry";
+          break;    
+  }  
+  return fruit;  
+}
+// хрень в том, что при любом числе n значение fruit будет apple.
+// так что в решениях много простых кодов типа:
+function SubtractSum(n){
+  return "apple"
+}

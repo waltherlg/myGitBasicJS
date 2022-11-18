@@ -290,3 +290,107 @@ function SubtractSum(n){
 function SubtractSum(n){
   return "apple"
 }
+
+
+/* Задачка с массивами 
+Реализуйте функцию, которая принимает массив, содержащий имена людей, 
+которым понравился элемент. Он должен возвращать отображаемый текст, 
+как показано в примерах:
+
+[]                                -->  "no one likes this"
+["Peter"]                         -->  "Peter likes this"
+["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+*/
+function likes(names) {
+  let a = names.length;
+  switch (a){
+      case 0:
+          answer = "no one likes this";
+          break;
+      case 1:
+          answer = (names[0] + " likes this" );
+          break;
+      case 2:
+          answer = (names[0] + " and " + names[1] + " like this" );
+          break;
+      case 3:
+          answer = (names[0] + ", " + names[1] + " and " + names[2] + " like this" );
+          break;
+      default:
+          let howManyOthers = a - 2;
+          let others = String(howManyOthers);
+          answer = (names[0] + ", " + names[1] + " and " + others + " others like this" );
+  }    
+  return answer;
+}
+
+/* Дается массив чисел, нужно вернуть массив с противоположными знаками. 
+Каждое положительное число становится отрицательным, 
+а отрицательное становится положительным.
+invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+invert([]) == [] 
+*/
+function invert(array) {
+  let a = array.length;
+  let newArray = [];
+  for (let sum = 0; sum < a; sum++){
+      let number = (array[sum]);
+      if ( number > 0){
+          number-=number*2;
+          newArray.push(number);
+      } 
+      else if (number < 0){
+          number-=number*2
+          newArray.push(number);
+      }
+      else if (number == 0){
+          number=-0;
+          newArray.push(number);
+      }
+  }
+      return newArray;
+}
+// среди решений более простой вариант
+function invert(array) {
+  var newArr = [];
+  for(var i = 0; i < array.length; i++){
+    newArr.push(-array[i]); // не знал что так можно
+  }
+   return newArr;
+}
+
+/* Задачка
+Ваша задача вернуть true, если дробная часть 
+(округленная до 1 цифры) результата ( a/ b) 
+существует, больше 0и кратна n. 
+В противном случае возврат false. 
+Все аргументы являются положительными цифровыми числами.
+Округление работает аналогично методу toFixed(). 
+(если более... 5 округлений вверх)
+Найдите примеры ниже:
+isMultiple(5, 2, 3) -> false // 2.5 -> 5 is not multiple of 3
+isMultiple(5, 3, 4) -> false // 1.7 -> 7 is not multiple of 4
+isMultiple(5, 4, 3) -> true // 1.3 -> 3 is multiple of 3
+isMultiple(666, 665, 2) -> false // 1.0 -> return false */
+function isMultiple(a, b, n) {
+  let firstAct = a/b;
+  firstAct = firstAct.toFixed(1);
+  console.log(firstAct)
+  let secondAct = Math.ceil(firstAct);
+  console.log(secondAct)
+  let thirdAct = ((firstAct - (secondAct-1))*10)
+  thirdAct = thirdAct.toFixed(0);
+  console.log(thirdAct)
+  if (thirdAct == 10){
+      return false;
+  }
+  if (thirdAct%n == 0){
+      return true;
+  }
+  else {
+      return false;
+  }
+}

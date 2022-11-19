@@ -394,3 +394,11 @@ function isMultiple(a, b, n) {
       return false;
   }
 }
+
+// после трех часов неудачной попытке решить задачу, сдался... и решил совсем мелкую:
+// убрать "egg" из строк: из "Beggegeggineggneggeregg" должно получится "Beginner"
+function unscrambleEggs(word){
+  return word.replace(/egg/g,""); // 
+}
+// команда replace заменяет то что под слешами /egg/ "g" значит что проверка будет по всей строке, 
+// в ковычках идет на что мы заменяем egg, в данном случае ни на что.

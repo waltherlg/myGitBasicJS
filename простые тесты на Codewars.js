@@ -518,7 +518,7 @@ var isSquare = function(n){
       return false;
   }
   else{
-      let sqv = Math.sqrt(n); // извлекаем корень из вводимого числа
+      let sqv = Math.sqrt(n).toFixed(0); // извлекаем корень из вводимого числа и округляем до целого
       if (sqv*sqv == n){ // Умножаем извлеченное число на само себя, если оно равно вводимому, то true
           return true;
       }

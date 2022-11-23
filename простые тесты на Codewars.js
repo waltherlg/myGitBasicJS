@@ -468,3 +468,63 @@ function solution(nums){
       return nums.sort( (a, b) => a - b ); // метод сортировки из вчерашней нерешенной задачи
   }
 }
+
+
+// являются ли строчки анаграммой
+var isAnagram = function(test, original) {
+  let testLower = test.toLowerCase();
+  let originalLower = original.toLowerCase();
+  let sortedTest = testLower.split('').sort().join('');
+  let sortedOriginal = originalLower.split('').sort().join('');
+  if (sortedTest == sortedOriginal){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+/*
+Завершите решение так, чтобы оно возвращало true, если первый переданный аргумент (строка) 
+заканчивается вторым аргументом (тоже строкой).
+Примеры:
+solution('abc', 'bc') // returns true
+solution('abc', 'd') // returns false
+*/
+function solution(str, ending){
+  let endingLen = ending.length;
+  let startEnding = -endingLen;
+  let endingStr
+  for (endingStr = ''; startEnding < 0; startEnding++){
+      endingStr = endingStr + str[str.length + startEnding];
+      }
+  if (endingStr == ending) {
+      return true;
+  }
+  else{
+      return false;
+  }
+  }
+
+/*
+адача
+Учитывая целое число, определите, является ли оно квадратным числом :
+В математике квадратное число или идеальный квадрат — это целое число, 
+являющееся квадратом целого числа; другими словами, 
+это произведение некоторого целого числа на самого себя.
+*/
+var isSquare = function(n){
+  if (n < 0) {
+      return false;
+  }
+  else{
+      let sqv = Math.sqrt(n); // извлекаем корень из вводимого числа
+      if (sqv*sqv == n){ // Умножаем извлеченное число на само себя, если оно равно вводимому, то true
+          return true;
+      }
+      else{
+          return false; 
+      }
+       
+  }   
+}

@@ -539,3 +539,39 @@ function solution(str){
   endStr = endStr.join(''); // переделываем массив в строку
   return endStr;
 }
+
+// определить длинну самого короткого слова в строке:
+function findShort(s){
+  let arr = s.split(" ") // переводим строку в массив
+  let sorted = arr.sort((a, b) => b.length - a.length) // сортируем элементы массива по длинне
+  return(sorted[sorted.length-1].length) // выводим длинну последнего массива
+}
+
+// вычеслить наименьшее и наибольшее число в массиве
+var min = function(list){
+  list.sort( (a, b) => a - b );
+  console.log(list[0])
+  return list[0];
+}
+var max = function(list){
+  list.sort( (a, b) => b - a );
+  console.log(list[0])
+  return list[0];
+}
+min([-52, 56, 30, 29, -54, 0, -110])
+max([-52, 56, 30, 29, -54, 0, -110])
+
+/*
+В городке население p0 = 1000 на начало года. 
+Население регулярно увеличивается на percent = 2 в год, и, кроме того , 
+каждый год в город приезжают  aug = 50 новых жителей. Сколько лет нужно городу, 
+чтобы его население было больше или равно количеству p = 1200жителей?
+*/
+function nbYear(p0, percent, aug, p) {
+  for (year = 0; p0<p; year++){
+      let perc = p0*(percent*0.01);
+      p0 = Math.floor(p0+perc+aug); // загвоздка была в этой строчке, нужно каждый раз округлять население в меньшую сторону.
+  }
+  return year;
+}
+nbYear(1000, 2, 50, 1214);

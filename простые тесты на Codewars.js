@@ -528,3 +528,14 @@ var isSquare = function(n){
        
   }   
 }
+
+// вывести строку задом наперед
+function solution(str){
+  let strLength = str.length; // определяем длинну
+  let endStr = [] // заводим массив куда будем скидывать буквы
+  for (let start = strLength-1; start>=0; start--){ // стартуем с последней буквы и до тех пор пока будет больше или равно 0
+    endStr.push(str[start]) // запихиваем буквы массив
+  }
+  endStr = endStr.join(''); // переделываем массив в строку
+  return endStr;
+}
